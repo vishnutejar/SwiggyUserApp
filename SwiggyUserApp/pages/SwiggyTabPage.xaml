@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SwiggyUserApp.pages.SwiggyTabPage"
+             Shell.NavBarIsVisible="False">
+   
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" >
+            <!-- Header view -->
+            <Grid RowDefinitions="*,*,Auto" ColumnDefinitions="*,Auto" Padding="10" HeightRequest="200">
+                <StackLayout Grid.Row="0" Grid.Column="0"  Orientation="Horizontal">
+                    <Image Source="location" HeightRequest="22"/>
+                    <Label Text="Home" Style="{StaticResource Labelbold}"/>
+                </StackLayout>
+                <StackLayout  Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Orientation="Horizontal">
+                    <Image Source="offer1" WidthRequest="25" HeightRequest="20" />
+                    <Label Text="Offers" Style="{StaticResource Labelbold}" FontSize="16"  VerticalTextAlignment="Center"/>
+
+                </StackLayout>
+                <Label Grid.Row="1" Grid.Column="0" Text="Hafis Cottage, Near Ar Camp, Palace R..." Style="{StaticResource Labelnormal}"/>
+                <BoxView Grid.Row="2" Grid.ColumnSpan="2" BackgroundColor="Gray" HeightRequest="1"/>
+            </Grid>
+            <ScrollView>
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Image Source="Swiggy" HeightRequest="22" />
+                        <Label Style="{StaticResource Labelnormal}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Get Free Delivery  Buy 1 Get 1"/>
+                                    <Span Text=" Buy SUPPER Now>>" TextColor="Orange"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                       
+                    
+                    </StackLayout>
+                    <CollectionView x:Name="listOfCategorys"
+                                    ItemsLayout="HorizontalList"
+                                    Margin="10"
+                                    HeightRequest="170">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout WidthRequest="150" >
+                                    <Frame  Padding="0"  Margin="5" CornerRadius="15">
+                                        <Grid RowDefinitions="*,auto" Padding="5">
+                                            <StackLayout Grid.Row="0">
+                                                <Label Text="{Binding CategoryTitle}" FontSize="14" HorizontalTextAlignment="Center" Style="{StaticResource Labelbold}" />
+                                                <Image HeightRequest="80" Aspect="Fill" Source="{Binding CategoryImage}"  />
+                                            </StackLayout>
+                                            <Label Grid.Row="1" HorizontalTextAlignment="Center" LineBreakMode="CharacterWrap" Text="{Binding CategoryDescription}" Style="{StaticResource Labelnormal}"/>
+                                        </Grid>
+                                       
+                                    </Frame>
+
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <StackLayout Orientation="Vertical">
+                        <Frame  CornerRadius="10" Margin="15"  Background="pink">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout>
+                                    <StackLayout Spacing="-20">
+                                        <Label Text="Hi, WE MISSED" TextColor="DarkMagenta" FontSize="20" FontAttributes="Bold"/>
+                                        <Label Text="YOU!" TextColor="DarkMagenta" FontSize="65" FontAttributes="Bold"/>
+                                    </StackLayout>
+                                    <StackLayout Margin="0,0,100,0">
+                                        <Label Text="Here's 60% off and more offers watiting for you" TextColor="Gray"/>
+                                        <Button Text="GRAB OFFER" FontAttributes="Bold" TextColor="DarkMagenta" BackgroundColor="AntiqueWhite" HeightRequest="35" Margin="0,0,80,0"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Image Source="ballon1.png"  TranslationX="-138" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <CarouselView  x:Name="lstofofferscarousel" HeightRequest="20" HorizontalOptions="CenterAndExpand" Margin="15,0">
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout>
+                                        <Label Text="{Binding .}" Style="{StaticResource Labelnormal}" HorizontalTextAlignment="Center"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
+                        </CarouselView>
+                        <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
+                    </StackLayout>
+                    <StackLayout Style="{StaticResource Parent1}" Orientation="Horizontal" Margin="10">
+                        <Image Source="like2.png" HeightRequest="20"/>
+                        <Label Text="Top Picks For You" Style="{StaticResource Labelbold}" FontSize="16"/>
+                    </StackLayout>
+                    <CollectionView x:Name="lstTopPicksforudata" HeightRequest="150" Margin="10,0" VerticalOptions="Center" ItemsLayout="HorizontalList">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Margin="10" >
+                                    <Frame HeightRequest="100"  Style="{StaticResource topicksview}" CornerRadius="10" Padding="0" Margin="10,0">
+                                        <Image Source="fd19.jfif"   Aspect="AspectFill"/>
+                                    </Frame>
+                                    <Label Text="Aramana" Style="{StaticResource Labelbold}" FontAttributes="None" FontSize="15" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="27 mins" Style="{StaticResource Labelnormal}" FontAttributes="None" FontSize="10" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Label Margin="15" Text="Popular Brands" Style="{StaticResource Labelbold}" FontSize="16"/>
+                    <CollectionView x:Name="lstPopularbrandsdata" HeightRequest="300" Margin="10,0" VerticalOptions="Center" ItemsLayout="HorizontalGrid, 2">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Margin="10" >
+                                    <Frame HeightRequest="120" BackgroundColor="Transparent"  Style="{StaticResource topicksview}"  Padding="0" Margin="10,0">
+                                        <ImageButton CornerRadius="60" Source="fd19.jfif"   Aspect="AspectFill"/>
+                                    </Frame>
+                                    <Frame  Style="{StaticResource topicksview}" HeightRequest="30"  CornerRadius="10" Padding="0" Margin="20,-30,20,0">
+                                        <Label  VerticalTextAlignment="Center" HorizontalOptions="Center" Text="20% OFF" TextColor="Orange" FontSize="14" FontAttributes="Bold" />
+                                    </Frame>
+                                    <Label Text="Aramana" Style="{StaticResource Labelbold}" FontAttributes="None" FontSize="15" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="27 mins" Style="{StaticResource Labelnormal}" FontAttributes="None" FontSize="10" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Label Margin="15" Text="Popular Curations" Style="{StaticResource Labelbold}" FontSize="16"/>
+                    <CollectionView x:Name="lstPopularcurationsdata" HeightRequest="300" Margin="10,0" VerticalOptions="Center" ItemsLayout="HorizontalGrid, 2">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Margin="10" >
+                                    <Frame HeightRequest="100"  Style="{StaticResource topicksview}" CornerRadius="10" Padding="0" Margin="10,0">
+                                        <Image Source="fd19.jfif"   Aspect="AspectFill"/>
+                                    </Frame>
+                                 
+                                    <Label Text="Aramana" Style="{StaticResource Labelbold}" FontAttributes="None" FontSize="15" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="27 mins" Style="{StaticResource Labelnormal}" FontAttributes="None" FontSize="10" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <StackLayout Orientation="Vertical" Margin="10">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="like2" HeightRequest="25"/>
+                            <Label Text="Try Something New" Style="{StaticResource Labelbold}" FontSize="16"/>
+                        </StackLayout>
+                        <Label Text="Discover a restaurant you haven't explored before." Style="{StaticResource Labelnormal}" FontSize="16"/>
+                   </StackLayout>
+                  
+                    <CollectionView x:Name="lstTrySomethingNewdata" HeightRequest="150" Margin="10,0" VerticalOptions="Center" ItemsLayout="HorizontalList">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Margin="10" >
+                                    <Frame HeightRequest="100"  Style="{StaticResource topicksview}" CornerRadius="10" Padding="0" Margin="10,0">
+                                        <Image Source="fd19.jfif"   Aspect="AspectFill"/>
+                                    </Frame>
+                                    <Frame  Style="{StaticResource topicksview}" HeightRequest="30"  CornerRadius="10" Padding="0" Margin="20,-30,20,0">
+                                        <Label  VerticalTextAlignment="Center" HorizontalOptions="Center" Text="20% OFF" TextColor="Orange" FontSize="14" FontAttributes="Bold" />
+                                    </Frame>
+                                    <Label Text="Aramana" Style="{StaticResource Labelbold}" FontAttributes="None" FontSize="15" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Text="27 mins" Style="{StaticResource Labelnormal}" FontAttributes="None" FontSize="10" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

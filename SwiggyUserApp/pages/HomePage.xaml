@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SwiggyUserApp.pages.HomePage"
+             xmlns:tabpages="clr-namespace:SwiggyUserApp.pages">
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" 
+                Value="White" />
+                <Setter Property="Shell.ForegroundColor" 
+                Value="White" />
+                <Setter Property="Shell.TitleColor" 
+                Value="Orange" />
+                <Setter Property="Shell.DisabledColor" 
+                Value="LightGray" />
+                <Setter Property="Shell.UnselectedColor" 
+                Value="Gray" />
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar>
+        <Tab Title="Swiggy" Icon="Swiggy">
+            <ShellContent Icon="Swiggy">
+                <tabpages:SwiggyTabPage IconImageSource="Swiggy"/>
+            </ShellContent>
+        </Tab>
+        <Tab Title="Search" Icon="search">
+            <ShellContent Icon="search">
+                <ContentPage>
+                    <StackLayout>
+                        <Label Text="sjdfsd"></Label>
+                    </StackLayout>
+                </ContentPage>
+            </ShellContent>
+        </Tab>
+        <Tab Title="Cart" Icon="Cart">
+            <ShellContent Icon="Cart">
+                <ContentPage>
+                    <StackLayout>
+                        <Label Text="sjdfsd"></Label>
+                    </StackLayout>
+                </ContentPage>
+            </ShellContent>
+        </Tab>
+        <Tab Title="Account" Icon="Account">
+            <ShellContent Icon="Account">
+                <ContentPage>
+                    <StackLayout>
+                        <Label Text="sjdfsd"></Label>
+                    </StackLayout>
+                </ContentPage>
+            </ShellContent>
+        </Tab>
+    </TabBar>
+</Shell>
